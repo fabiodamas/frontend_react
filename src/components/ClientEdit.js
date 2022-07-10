@@ -47,7 +47,7 @@ async handleSubmit(event) {
         },
         body: JSON.stringify(item),
     });
-    this.props.history.push('/clients');
+    this.props.history.push('/');
 }
 
     render() {
@@ -71,7 +71,7 @@ async handleSubmit(event) {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Salvar</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/clients">Cancelar</Button>
+                        <Button color="secondary" tag={Link} to="/">Cancelar</Button>
                     </FormGroup>
                 </Form>
             </Container>
