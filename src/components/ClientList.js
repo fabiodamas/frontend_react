@@ -8,7 +8,6 @@ class ClientList extends Component {
     constructor(props) {
         super(props);
         this.state = {clients: []};
-        this.remove = this.remove.bind(this);
     }
 
     componentDidMount() {
@@ -35,12 +34,12 @@ class ClientList extends Component {
 
         const clientList = clients.map(client => {
             return <tr key={client.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{client.name}</td>
+                <td>{client.name}</td>
                 <td>{client.email}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/clients/" + client.id}>Editar</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(client.id)}>Apagar</Button>
+                        <Button  color="primary" tag={Link} to={"/clients/" + client.id}>Editar</Button>
+                        <Button  color="danger" onClick={() => this.remove(client.id)}>Apagar</Button>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -49,7 +48,7 @@ class ClientList extends Component {
         return (
             <div>
                 <AppNavbar/>
-                <Container fluid>
+                <Container>
                     <div className="float-right">
                         <Button color="success" tag={Link} to="/clients/new" >Adicionar Cliente</Button>
                     </div>

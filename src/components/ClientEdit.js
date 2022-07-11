@@ -15,6 +15,7 @@ class ClientEdit extends Component {
         this.state = {
             item: this.emptyItem
         };
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -35,20 +36,20 @@ class ClientEdit extends Component {
         this.setState({item});
     }
 
-async handleSubmit(event) {
-    event.preventDefault();
-    const {item} = this.state;
+    async handleSubmit(event) {
+        event.preventDefault();
+        const {item} = this.state;
 
-    await fetch('/clients' + (item.id ? '/' + item.id : ''), {
-        method: (item.id) ? 'PUT' : 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(item),
-    });
-    this.props.history.push('/');
-}
+        await fetch('/clients' + (item.id ? '/' + item.id : ''), {
+            method: (item.id) ? 'PUT' : 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item),
+        });
+        this.props.history.push('/');
+    }
 
     render() {
         const {item} = this.state;
